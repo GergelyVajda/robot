@@ -95,9 +95,9 @@ public class Robot {
             //2/C
             ED = 0;
             KN = 0;
-            Integer maxED=0;
-            Integer maxKN=0;
-            Integer pytagoras=0;
+            Integer maxED = 0;
+            Integer maxKN = 0;
+            Integer pytagoras = 0;
             Double tavolsag;
             for (int i = 0; i < programok[sor].length(); i++) {
                 if (programok[sor].charAt(i) == 'E') {
@@ -112,22 +112,37 @@ public class Robot {
                 if (programok[sor].charAt(i) == 'N') {
                     KN--;
                 }
-                    if (ED>maxED) {
-                    maxED=ED;
+                if (ED > maxED) {
+                    maxED = ED;
                 }
-                    if (KN>maxKN) {
-                    maxKN=KN;
-                }      
+                if (KN > maxKN) {
+                    maxKN = KN;
+                }
             }
-            pytagoras=(maxED*maxED)+(maxKN*maxKN);
-            tavolsag=Math.sqrt(pytagoras);
-            
+            pytagoras = (maxED * maxED) + (maxKN * maxKN);
+            tavolsag = Math.sqrt(pytagoras);
+
             System.out.print("A robot az utasítássor során légvonalban ");
             System.out.printf("%3.3f", tavolsag);
             System.out.println("cm távolságra volt a kiinduló ponttól.");
-            
+
             System.out.println("---HARMADIK FELADAT---");
-            
+            Integer energia;
+
+            for (int j = 0; j < sorszam; j++) {
+                energia=2;
+                for (int i = 0; i < programok[j].length()-1; i++) {
+                    if (programok[j].charAt(i) != programok[j].charAt(i+1)) {
+                        energia=energia+3;
+                    }else{
+                        energia++;
+                    }
+  
+                }
+                if (energia<=100) {
+                    System.out.println( j+1+" "+energia);
+                }
+            }
             
             
 
